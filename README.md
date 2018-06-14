@@ -1,2 +1,2 @@
 # Assembly-Programs
-This will be where some files related to assembly programs will be saved
+This is a repository dedicated to assembly programs written for the MC68000 Processor at school 
