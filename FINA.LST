@@ -1,0 +1,37 @@
+                        * Lab 4
+                        * March 12
+                        * Dean Chong San
+                        
+00003000                	ORG $3000
+                        
+00003000 2a1f           mySUB	MOVE.L (SP)+,D5  ;poping the PC value to a d5 register
+00003002 241f           		MOVE.L (SP)+,D2	;Poping the right values then
+00003004 221f           		MOVE.L (SP)+,D1
+00003006 201f           		MOVE.L (SP)+,D0
+00003008 2f05           		MOVE.L D5,-(SP)	;Pushing the PC back to the top of the stack then
+0000300a 4283           		CLR.L D3		;Code from mySUB
+0000300c d680           		ADD.L D0,D3
+0000300e d681           		ADD.L D1,D3
+00003010 9682           		SUB.L D2,D3
+00003012 4e75           		RTS					;Returns the subroutine
+                        		
+                        
+                        
+00004000                	ORG $4000					;Main
+00004000 4243           		CLR D3					
+00004002 203c 0000 0008 		MOVE.L #8,D0		;Moving values into the registers
+00004008 223c 0000 0007 		MOVE.L #7,D1
+0000400e 243c 0000 0005 		MOVE.L #5,D2
+                        
+00004014 2f00           		MOVE.L D0,-(SP)		;Pushing values to the stack
+00004016 2f01           		MOVE.L D1,-(SP)
+00004018 2f02           		MOVE.L D2,-(SP)
+                        
+0000401a 6100 efe4      		BSR mySUB
+                        
+0000401e 4e4f           		TRAP #15
+00004020 0063           		DC.W $63
+                        
+
+ =====     0 Error(s)
+ =====     0 Warning(s)

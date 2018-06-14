@@ -1,0 +1,18 @@
+                        * Experiment 2
+                        * Name: Dean Chong San
+                        * Date: February 05 2019
+                        
+                        
+00004000                	ORG $4000
+00004000 4241           	CLR D1
+00004002 4242           	CLR D2
+00004004 4243           	CLR D3
+00004006 343c 200a      	MOVE.W #$200A,D2
+0000400a 363c 1000      	MOVE.W #$1000,d3
+0000400e d242           	ADD D2,D1
+00004010 d243           	ADD D3,D1
+00004012 4e4f           	TRAP #15
+00004014 0063           	DC.W $63
+
+ =====     0 Error(s)
+ =====     0 Warning(s)
