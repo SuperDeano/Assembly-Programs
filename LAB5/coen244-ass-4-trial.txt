@@ -1,0 +1,87 @@
+//Function which adds new vertex
+void addVertex(){
+    int id, value;
+    //The title of the menu
+    std::cout << "\nAdding new Vertex" << std::endl;
+    //Gathering Data
+    std::cout << "\nEnter the ID of the vertex" <<std::endl;
+    std::cin >> id;
+    std::cout << "Enter the value of the vertex" << std::endl;
+    std::cin >> value;
+    //Adding the new vertex
+    UndirectGraph ->addVertex(new Vertex(id,value));
+    std::cout << "\nNew Vertex added" << std::endl;
+
+};
+
+//Function which adds new edge
+void addEdge(){
+
+    int weight, endingVertex, startingVertex;
+endingVertex = 0;
+    //The title of the menu
+    std::cout << "\nAdding new Edge" << std::endl;
+
+    //Gathering Data
+    std::cout << "\nEnter the Weight of the edge" << std::endl;
+    std::cin >> weight;
+    std::cout << "\nEnter the Starting Vertex" << std::endl;
+    std::cin >> startingVertex;
+    //try{
+    std::cout << "\nEnter the Ending Vertex" << std::endl;
+        std::cin.ignore();
+    std::cin >> endingVertex;
+    std::cout << "\nAdding the new vertex";
+        //std::cin.ignore();
+        //if (endingVertex == 0)
+          //  throw 69;
+
+        auto * lol = new Edge (weight, startingVertex, endingVertex);
+        bool diditAdd;
+        std::cout <<"IT added";
+        diditAdd = UndirectGraph->addEdge(lol);
+        
+        //if (!diditAdd)
+          //  throw 5;
+
+   // } catch (int a) {
+       // std::cout << "It didnt work with code " << a ;
+
+    //}
+
+   // std::cout << "\nNew Edge added" << std::endl  std::cout << "Graph was not added"<< std::endl;
+
+};
+
+void displayPathforV(){
+    int id;
+    std::cout << "Displaying path"<<std::endl;
+    std::cout << "Enter the ID";
+    std::cin >> id;
+    
+    UndirectGraph->display(UndirectGraph->returnVertex(id));
+    
+
+};
+
+void menu(){
+    int choice;
+    std::cout << "\nMain Menu" <<std::endl;
+    std::cout << "\n1 - Add new Vector\n2 - Add new Edge\n3 - Display Path for Vertex" << std::endl;
+    std::cin >> choice;
+    while (choice <1 || choice>3){
+        std::cin >> choice;
+    }
+    switch (choice) {
+        case 1:
+            addVertex();
+            break;
+        case 2:
+            addEdge();
+            break;
+        default:
+            displayPathforV();
+            break;
+    }
+    menu();
+};
